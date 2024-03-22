@@ -7,57 +7,62 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col ">
-      <div className="flex h-20 shrink-0 items-end text-white p-2 md:h-28 gap-1 md:gap-3">
-      
-       <MyClassLogo /> 
+   
+      <div className="relative w-full bg-gray">
+            <nav className="fixed z-10 w-full bg-gray md:absolute bg-gray">
+                <div className="container m-auto px-2 md:px-12 lg:px-7">
+                    <div className="flex flex-wrap items-center justify-between py-3 gap-6 md:py-4 md:gap-0">
+                        <div className="w-full px-6 flex justify-between lg:w-max md:px-0">
+                           <MyClassLogo/>
 
-        
+                            <button aria-label="humburger" id="hamburger" className="relative w-10 h-10 -mr-2 lg:hidden">
+                                <div aria-hidden="true" id="line" className="inset-0 w-6 h-0.5 m-auto rounded bg-yellow-900 transition duration-300"></div>
+                                <div aria-hidden="true" id="line2" className="inset-0 w-6 h-0.5 mt-2 m-auto rounded bg-yellow-900 transition duration-300"></div>
+                            </button>
+                        </div>
 
-        <Link href="/login" className="flex w-32 my-auto items-center gap-3 self-start rounded-full bg-indigo-700 px-6 py-3 text-sm font-medium  transition-colors hover:bg-indigo-500 md:text-base">
-            <span>Log  in</span> 
-            {/* <ArrowRightIcon className="w-5 md:w-6" /> */}
-        </Link>
+                        <div className="hidden w-full lg:flex flex-wrap justify-end items-center space-y-6 p-6 rounded-xl bg-white md:space-y-0 md:p-0 md:flex-nowrap md:bg-transparent lg:w-7/12">
+                            
 
-
-
-        <Link href="/SignUp" className="flex w-32 my-auto  items-center gap-3 self-start rounded-full bg-indigo-700 px-6 py-3 text-sm font-medium transition-colors hover:bg-indigo-500 md:text-base">
-            <span>Sign Up</span> 
-            {/* <ArrowRightIcon className="w-5 md:w-6" /> */}
-        </Link>
-
-      </div>
-      
-      <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center  rounded-2xl bg-gray-200 px-6 py-10 md:w-2/5 md:px-16">
-          <p className="flex justify-center text-2xl text-center text-gray-800  md:leading-normal">
-            <strong>Find the <span className="text-indigo-700">
-              Perfect Teacher 
-            </span><br></br>
-            nearby </strong> 
-          </p>
-          
-          <p className="text-center">lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          
+                            <div className="w-full space-y-2 border-white lg:space-y-0 md:w-max lg:border-l">
+                               
+                                <button type="button" title="Start buying" className="w-full py-3 px-6 text-center rounded-full transition bg-blue-950  active:bg-yellow-400 focus:bg-yellow-300 sm:w-max">
+                                    <span className="block text-white font-semibold text-sm">
+                                        Login/Register
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div className="relative bg-white">
+                <div className="container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
+                    <div className="flex items-center flex-wrap px-2 md:px-0">
+                        <div className="relative lg:w-6/12 lg:py-24 xl:py-32">
+                            <h1 className="font-bold text-4xl text-yellow-900 md:text-5xl lg:w-10/12">Find the perfect teacher nearby</h1>
+                            <form action="" className="w-full mt-12">
+                                <div className="relative flex p-1 rounded-full bg-white border border-gray-200 shadow-gray-500 md:p-2">
+                                   
+                                    <input placeholder="Search by name" className="w-full p-4 rounded-full" type="text" />
+                                    <button type="button" title="Start buying" className="ml-auto py-3 px-6 rounded-full text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-white-300  md:px-12">
+                                        <span className="hidden text-yellow-900 font-semibold md:block">search</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 mx-auto text-yellow-900 md:hidden" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
+                            <p className="mt-8 text-gray-700 lg:w-10/12">Sit amet consectetur adipisicing elit. <a href="#" className="text-yellow-700">connection</a> tenetur nihil quaerat suscipit, sunt dignissimos.</p>
+                        </div>
+                        <div className="ml-auto -mb-24 lg:-mb-56 lg:w-6/12">
+                            <img src="https://classplusapp.com/growth/wp-content/uploads/2023/02/Top-Qualities-Of-A-Good-Teacher-1-1024x684.jpg" className="relative" alt="food illustration" loading="lazy" width="4500" height="4500" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          
-          <Image
-          src="/hero-desktop.png"
-          width={1000}
-          height={760}
-          className="hidden md:block"
-          alt="Screenshots of the dashboard project showing desktop version"
-          />
-          <Image
-          src="/hero-mobile.png"
-          width={560}
-          height={620}
-          className="block md:hidden"
-          alt="Screenshots of the dashboard project showing mobile version"
-        />
-        </div>
-      </div>
-    </main>
+      
+   
   );
 }
