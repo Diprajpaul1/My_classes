@@ -62,7 +62,7 @@ export default function Page() {
 
       </div>
 
-      <div className="mt-4 flex flex-col gap-2 md:flex-row">
+      < className="mt-4 flex flex-col gap-2 md:flex-row">
         <div className="flex flex-col gap-4 items-center justify-center p-1 md:w-screen md:px-16 md:py-6 " >
           
 
@@ -105,11 +105,11 @@ export default function Page() {
 
         <div className="flex flex-col gap-4 items-center justify-center p-1 md:w-screen md:px-16 md:py-6 md:flex-row" >
       
-    <div className="w-[360px] h-[480px] py-8 px-1">
+    <div className="w-[360px] h-[280px] py-8 px-1">
     <div className="header flex w-full justify-center">
       <h2 className=" font-black pb-10 mb-20 text-5xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">Batches</h2>
     </div>
-      <div className="bg-opacity-100 shadow-xl hover:rounded-2xl transform transition-transform duration-500 ease-in-out hover:scale-110 relative flex flex-col justify-center items-center w-[300px] h-[400px] mx-auto p-2 bg-slate-50 border-slate-900 text-slate-50 shadow-lg rounded-3xl hover:shadow-xl">
+      <div className="bg-opacity-100 shadow-xl hover:rounded-2xl transform transition-transform duration-500 ease-in-out hover:scale-110 relative flex flex-col justify-center items-center w-[200px] h-[300px] mx-auto p-2 bg-slate-50 border-slate-900 text-slate-50 shadow-lg rounded-3xl hover:shadow-xl">
 
         <h3 className="absolute -top-5 -left-5 w-32 p-2 bg-slate-800 rounded-3xl text-2xl font-merriweather text-center">
           NEET
@@ -119,7 +119,26 @@ export default function Page() {
           <img src="https://imgur.com/iUzX7FD.png" alt="Eazy IP Web app showcase mockup" className="object-fill" />
         </a>
 
-        <p className="absolute -bottom-12 left-6 w-[300px] p-4 bg-inherit border-slate-900 text-slate-900 border shadow-lg rounded-3xl hover:text-black hover:shadow-xl">
+        <p className="absolute -bottom-12 left-6 w-[250px] p-4 bg-inherit border-slate-900 text-slate-900 border shadow-lg rounded-3xl hover:text-black hover:shadow-xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+      </div>
+    </div>
+    <div className="w-[360px] h-[280px] py-8 px-1">
+    <div className="header flex w-full justify-center">
+      <h2 className=" font-black pb-8 mb-20 text-5xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3"></h2>
+    </div>
+      <div className="bg-opacity-100 shadow-xl hover:rounded-2xl transform transition-transform duration-500 ease-in-out hover:scale-110 relative flex flex-col justify-center items-center w-[200px] h-[300px] mx-auto p-2 bg-slate-50 border-slate-900 text-slate-50 shadow-lg rounded-3xl hover:shadow-xl">
+
+        <h3 className="absolute -top-5 -left-5 w-32 p-2 bg-slate-800 rounded-3xl text-2xl font-merriweather text-center">
+          NEET
+        </h3>
+
+        <a href="https://eazyip.github.io/" target="__blank" className="block w-full mx-auto p-2 md:mx-auto hover:rotate-2 transition ease-in-out delay-75 duration-150">
+          <img src="https://imgur.com/iUzX7FD.png" alt="Eazy IP Web app showcase mockup" className="object-fill" />
+        </a>
+
+        <p className="absolute -bottom-12 left-6 w-[250px] p-4 bg-inherit border-slate-900 text-slate-900 border shadow-lg rounded-3xl hover:text-black hover:shadow-xl">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </p>
       </div>
@@ -127,8 +146,6 @@ export default function Page() {
 
         </div>
 
-
-      </div>
     </main>
 
   );
