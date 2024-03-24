@@ -112,7 +112,7 @@ export default function Page() {
       <div className="bg-opacity-100 shadow-xl hover:rounded-2xl transform transition-transform duration-500 ease-in-out hover:scale-110 relative flex flex-col justify-center items-center w-[300px] h-[400px] mx-auto p-2 bg-slate-50 border-slate-900 text-slate-50 shadow-lg rounded-3xl hover:shadow-xl">
 
         <h3 className="absolute -top-5 -left-5 w-32 p-2 bg-slate-800 rounded-3xl text-2xl font-merriweather text-center">
-          Eazy IP
+          NEET
         </h3>
 
         <a href="https://eazyip.github.io/" target="__blank" className="block w-full mx-auto p-2 md:mx-auto hover:rotate-2 transition ease-in-out delay-75 duration-150">
@@ -120,7 +120,7 @@ export default function Page() {
         </a>
 
         <p className="absolute -bottom-12 left-6 w-[300px] p-4 bg-inherit border-slate-900 text-slate-900 border shadow-lg rounded-3xl hover:text-black hover:shadow-xl">
-          Eazy IP is a Progressive Web App that aims at becoming an essential toolkit for network engineers by handling IP operations flawlessly
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </p>
       </div>
     </div>
