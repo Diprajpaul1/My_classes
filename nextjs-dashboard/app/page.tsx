@@ -62,7 +62,7 @@ export default function Page() {
 
       </div>
 
-      < className="mt-4 flex flex-col gap-2 md:flex-row">
+      <div className="mt-4 flex flex-col gap-2 md:flex-row">
         <div className="flex flex-col gap-4 items-center justify-center p-1 md:w-screen md:px-16 md:py-6 " >
           
 
@@ -146,6 +146,8 @@ export default function Page() {
 
         </div>
 
+
+      </div>
     </main>
 
   );
