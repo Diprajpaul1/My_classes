@@ -3,6 +3,25 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ProfileList from './ui/teachers/profileList';
 
+
+
+const servicesList = [
+  {name: 'Dedicated-doubt-solving', href: './dashboard', imagesrc: '/Doubt.svg',},
+  {name: 'Mentorship-sessions', href: './dashboard', imagesrc: '/Mentorship.svg',},
+  {name: 'Progress-tracking', href: './dashboard', imagesrc: '/Progress.svg',},
+  {name: 'notes-and-course-materila', href: './dashboard', imagesrc: '/Notes.svg',},
+  {name: 'Test-series', href: './dashboard', imagesrc: '/Test series.svg',},
+  {name: 'career-consultation', href: './dashboard', imagesrc: '/Consultations.svg',},
+]
+
+const batchList = [
+  {name: "NEET" , href: "./dashboard" , classes: ['class XI','class XII','dropper']},
+  {name: "JEE" , href: "./dashboard" , classes: ['class XI','class XII','dropper']},
+  {name: "school" , href: "./dashboard" , classes: ['class XI','class XII','dropper']},
+
+]
+
+
 export default function Page() {
   return (
 
@@ -62,92 +81,47 @@ export default function Page() {
 
       </div>
 
-      <div className="mt-4 flex flex-col gap-2 md:flex-row">
-        <div className="flex flex-col gap-4 items-center justify-center p-1 md:w-screen md:px-16 md:py-6 " >
-          
 
+      <div className="mt-4 flex flex-col gap-2 items-center justify-center p-1 md:w-screen ">
+        
           <strong className='font-extrabold text-2xl'>
             Our Services</strong>
-          <div className='flex gap-4'>
-            <Link href='./dashboard' className=' relative flex flex-col w-48 h-40  ' >
-            <Image src='/Doubt.svg'  width={100} height={100} className='w-48 h-40 pb-8' alt='Dedicated  doubt solving' ></Image>
-            <span className='absolute bottom-1 left-5 font-bold text-sm '>Dedicated  doubt solving</span></Link>
 
-            <Link href='./' className=' relative flex flex-col w-48 h-40  ' >
-            <Image src='/Mentorship.svg'  width={100} height={100} className='w-48 h-40 pb-8' alt='mentorship sessions' ></Image>
-            <span className='absolute bottom-1 left-5 font-bold text-sm '>mentorship sessions</span></Link>
-            
+          <div className='flex justify-evenly flex-wrap'>
+            {servicesList.map((item) => {
+              return(
+                <Link key={item.name} href={item.href} className=' hover:shadow-2xl relative flex flex-col w-48 shadow-lg rounded-3xl h-40  ' >
+                <Image src={item.imagesrc}  width={100} height={100} className='w-48 h-40 pb-8 mx-3' alt={item.name} ></Image>
+                <span className='absolute bottom-1 left-5 font-bold text-sm ml-1'>{item.name}
+                </span>
+                </Link>
+              )
+            })}
           </div>
-          <div className='flex gap-4'>
-            <Link href='./' className=' relative flex flex-col w-48 h-40  ' >
-            <Image src='/Progress.svg'  width={100} height={100} className='w-48 h-40 pb-8' alt='progress tracking' ></Image>
-            <span className='absolute bottom-1 left-5 font-bold text-sm '>progress tracking</span></Link>
-            
-            <Link href='./' className=' relative flex flex-col w-48 h-40  ' >
-            <Image src='/Notes.svg'  width={100} height={100} className='w-48 h-40 pb-8' alt='notes and course material' ></Image>
-            <span className='absolute bottom-1 left-5 font-bold text-sm '>notes and course material</span></Link>
-            
-            
-          </div>
-          <div className='flex gap-4'>
-          <Link href='./' className=' relative flex flex-col w-48 h-40  ' >
-            <Image src='/Test series.svg'  width={100} height={100} className='w-48 h-40 pb-8' alt='test seeries' ></Image>
-            <span className='absolute bottom-1 left-5 font-bold text-sm '>test seeries</span></Link>
-            
-            <Link href='./' className=' relative flex flex-col w-48 h-40  ' >
-            <Image src='/Consultations.svg'  width={100} height={100} className='w-48 h-40 pb-8' alt='career consultation' ></Image>
-            <span className='absolute bottom-1 left-5 font-bold text-sm '>career consultation</span></Link>
-            
-            
-          </div>
+      </div>
+
+      <div className="flex flex-col gap-4 items-center justify-center p-1 md:w-screen md:px-16 md:py-6 " >
+          <strong className='font-extrabold text-2xl'>
+            Batches</strong>
+            <div className='flex  flex-col md:flex-row'>
+              {batchList.map((batches) => (
+                <Link key={batches.name} href={batches.href} className='p-4 bg-indigo-400 m-2 shadow-lg rounded-2xl hover:bg-indigo-300'>
+                  <strong>{batches.name}</strong>
+                  
+                  <div className='flex'>
+                    {batches.classes.map((cls, index) => (
+                      <div key={index} className='flex bg-slate-700 w-20 justify-center rounded-full p-2 text-white m-2'>
+                        <strong>{cls}</strong>
+                      </div>
+                    ))}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          
 
         </div>
 
-        <div className="flex flex-col gap-4 items-center justify-center p-1 md:w-screen md:px-16 md:py-6 md:flex-row" >
-      
-    <div className="w-[360px] h-[280px] py-8 px-1">
-    <div className="header flex w-full justify-center">
-      <h2 className=" font-black pb-10 mb-20 text-5xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">Batches</h2>
-    </div>
-      <div className="bg-opacity-100 shadow-xl hover:rounded-2xl transform transition-transform duration-500 ease-in-out hover:scale-110 relative flex flex-col justify-center items-center w-[200px] h-[300px] mx-auto p-2 bg-slate-50 border-slate-900 text-slate-50 shadow-lg rounded-3xl hover:shadow-xl">
-
-        <h3 className="absolute -top-5 -left-5 w-32 p-2 bg-slate-800 rounded-3xl text-2xl font-merriweather text-center">
-          NEET
-        </h3>
-
-        <a href="https://eazyip.github.io/" target="__blank" className="block w-full mx-auto p-2 md:mx-auto hover:rotate-2 transition ease-in-out delay-75 duration-150">
-          <img src="https://imgur.com/iUzX7FD.png" alt="Eazy IP Web app showcase mockup" className="object-fill" />
-        </a>
-
-        <p className="absolute -bottom-12 left-6 w-[250px] p-4 bg-inherit border-slate-900 text-slate-900 border shadow-lg rounded-3xl hover:text-black hover:shadow-xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
-    <div className="w-[360px] h-[280px] py-8 px-1">
-    <div className="header flex w-full justify-center">
-      <h2 className=" font-black pb-8 mb-20 text-5xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3"></h2>
-    </div>
-      <div className="bg-opacity-100 shadow-xl hover:rounded-2xl transform transition-transform duration-500 ease-in-out hover:scale-110 relative flex flex-col justify-center items-center w-[200px] h-[300px] mx-auto p-2 bg-slate-50 border-slate-900 text-slate-50 shadow-lg rounded-3xl hover:shadow-xl">
-
-        <h3 className="absolute -top-5 -left-5 w-32 p-2 bg-slate-800 rounded-3xl text-2xl font-merriweather text-center">
-          NEET
-        </h3>
-
-        <a href="https://eazyip.github.io/" target="__blank" className="block w-full mx-auto p-2 md:mx-auto hover:rotate-2 transition ease-in-out delay-75 duration-150">
-          <img src="https://imgur.com/iUzX7FD.png" alt="Eazy IP Web app showcase mockup" className="object-fill" />
-        </a>
-
-        <p className="absolute -bottom-12 left-6 w-[250px] p-4 bg-inherit border-slate-900 text-slate-900 border shadow-lg rounded-3xl hover:text-black hover:shadow-xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
-
-        </div>
-
-
-      </div>
     </main>
 
   );
