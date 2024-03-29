@@ -6,6 +6,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import axios from 'axios';
  
 const FormSchema = z.object({
   id: z.string(),
@@ -131,3 +132,122 @@ export async function deleteInvoice(id: string) {
       throw error;
     }
   }
+
+ 
+
+
+// Define the Zod schema
+
+const teacherRegisterSchema = z.object({
+ name: z.string().min(1, "Name must be at least 1 character long")
+    .max(50, "Name must be no more than 50 characters long"),
+    
+ email: z.string().email(),
+ completeAddress: z.string().min(1, "Complete address must be at least 1 character long").max(200, "Complete address must be no more than 200 characters long"),
+ description: z.string().min(1, "Description must be at least 1 character long").max(200, "Description must be no more than 200 characters long"),
+ locality: z.string().min(1, "Locality must be at least 1 character long").max(50, "Locality must be no more than 50 characters long"),
+ phone: z.string()
+    .min(10, "Phone number must be exactly 10 digits long")
+    .max(10, "Phone number must be exactly 10 digits long")
+    .refine(phone => /^\d{10}$/.test(phone), {
+      message: "Phone number must be a 10 digit number",
+    }),
+ qualification: z.string().min(1, "Qualification must be at least 1 character long").max(50, "Qualification must be no more than 50 characters long"),
+ subjectTeaching: z.string().min(1, "Subject teaching must be at least 1 character long").max(50, "Subject teaching must be no more than 50 characters long"),
+});
+
+
+export async function teacherRegister(
+  prevState: string | undefined,
+  formData: FormData
+  ) {
+ const formattedData = {
+    "name": formData.get('name'),
+    "email": formData.get('email'),
+    "completeAddress": "_",
+    "description": "Qualified Teacher",
+    "locality": formData.get('address'),
+    "phone": formData.get('contact'),
+    "qualification": "not given",
+    "subjectTeaching": formData.get('subject')
+ };
+
+ 
+ const validationResult = teacherRegisterSchema.safeParse(formattedData);
+
+ if (!validationResult.success) {
+  const errorMessages = validationResult.error.issues.map(issue => issue.message);
+  console.log(errorMessages)
+  return errorMessages.join(', ');
+  }
+  console.log(validationResult)
+  
+
+ const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/teacher/register';
+
+ try {
+    const response = await axios.post(apiEndpoint, formattedData);
+    console.log(response.data);
+    return 'success';
+ } catch (error) {
+    console.error(error);
+    return 'error';
+ }
+
+}
+
+const studentRegisterSchema = z.object({
+  name: z.string().min(1, "Name must be at least 1 character long")
+     .max(50, "Name must be no more than 50 characters long"),
+     
+  email: z.string().email(),
+
+  class: z.number().int().min(1, "Class must be a number between 1 and 12").max(12, "Class must be a number between 1 and 12"),
+  
+  phone: z.string()
+     .min(10, "Phone number must be exactly 10 digits long")
+     .max(10, "Phone number must be exactly 10 digits long")
+     .refine(phone => /^\d{10}$/.test(phone), {
+       message: "Phone number must be a 10 digit number",
+     }),
+
+    reffralId:z.string().min(1, "Name must be at least 1 character long")
+    .max(12, "Name must be no more than 50 characters long"),
+  
+ });
+
+export async function studentRegister(
+  prevState: string | undefined,
+  formData: FormData) 
+  {
+
+
+    const formattedData = {
+        "email":formData.get('email'),
+        "name":formData.get('name'),
+        "phoneNumber":formData.get('contact'),
+        "currentClass":formData.get('class'),
+        "reffralId":'4d2cbab33c4d'    
+     };
+
+   const validationResult = teacherRegisterSchema.safeParse(formattedData);
+   if (!validationResult.success) {
+    const errorMessages = validationResult.error.issues.map(issue => issue.message);
+    console.log(errorMessages)
+    return errorMessages.join(', ');
+    }
+    console.log(validationResult)
+
+
+    const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/register';
+
+    try {
+        const response = await axios.post(apiEndpoint, formattedData);
+        console.log(response.data);
+        return 'success';
+    } catch (error) {
+        console.error(error);
+        return 'error';
+    }
+  
+}

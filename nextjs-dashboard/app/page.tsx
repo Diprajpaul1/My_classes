@@ -1,4 +1,4 @@
-import MyClassLogo from './ui/myclass-logo';
+import { MyClassLogoBlack } from './ui/myclass-logo';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProfileList from './ui/teachers/profileList';
@@ -25,6 +25,12 @@ const batchList = [
 export default function Page() {
   return (
 
+    <main className="flex min-h-screen flex-col ">
+      <nav className="flex shadow-lg sticky h-20 top-0 z-10 shrink-0 items-end bg-white  p-2 md:h-22 gap-1 md:gap-3">
+        
+       <MyClassLogoBlack/> 
+
+
    
 
     <main className="flex min-h-screen flex-col ">
@@ -48,7 +54,7 @@ export default function Page() {
             Meet the <span className="text-indigo-700"> experienced tution teachers</span> of Agartala!  
             </strong>
           </p>
-          <button className='rounded-2xl bg-indigo-700 w-20 text-white p-1 font-semibold'>explore</button>
+          {/* <button className='rounded-2xl bg-indigo-700 w-20 text-white p-1 font-semibold'>explore</button> */}
          
           <Image src='/hero-home.svg' width={900} height={100} alt='headding image' ></Image>
           <div className='bg-indigo-700 w-full text-white ' >
@@ -58,26 +64,15 @@ export default function Page() {
         </div>
         
 
-        <div className="flex flex-col items-center self-start justify-center  md:h-2/5 md:px-12 md:py-0 md:mb-auto">
-        <form action="" className="w-full mt-12">
-      <div className="relative flex p-1 rounded-full bg-white border border-yellow-200 shadow-md md:p-2">
-       
-        <input placeholder="search" className="w-full p-4 rounded-full" type="text" />
-        <button type="button" title="Start buying" className="ml-auto py-3 px-6 rounded-full text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-red-300 active:from-yellow-400 focus:from-red-400 md:px-12">
-          <span className="hidden text-yellow-900 font-semibold md:block">Search</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 mx-auto text-yellow-900 md:hidden" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-          </svg>
-        </button>
-      </div>
-    </form>
+        {/* <div className="flex flex-col items-center self-start justify-center  md:h-2/5 md:px-2 md:py-0 md:mb-auto">
+
           <strong className='font-extrabold text-2xl'>
             Teachers in Agartala</strong>
             <strong className='font-extrabold text-2xl'>
             (search bar)</strong>
             <ProfileList/>
           
-        </div>
+        </div> */}
 
       </div>
 
