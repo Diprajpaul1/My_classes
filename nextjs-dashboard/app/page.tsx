@@ -29,14 +29,14 @@ export default function Page() {
       <nav className="flex shadow-lg sticky h-20 top-0 z-10 shrink-0 items-end bg-white  p-2 md:h-22 gap-1 md:gap-3">
         
        <MyClassLogoBlack/> 
-
+</nav>
 
    
 
-    <main className="flex min-h-screen flex-col ">
+   
       <nav className="flex shadow-lg sticky h-20 top-0 z-10 shrink-0 items-end bg-white text-white p-2 md:h-22 gap-1 md:gap-3">
       
-       <MyClassLogo /> 
+      
 
         <Link href="/login" className="flex justify-center  text-sm w-40 my-auto 
            rounded-full bg-indigo-700 px-1 py-2  transition-colors
