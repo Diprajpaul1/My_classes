@@ -33,7 +33,7 @@ export default function Page() {
 
    
 
-   
+<main className="flex min-h-screen flex-col ">
       <nav className="flex shadow-lg sticky h-20 top-0 z-10 shrink-0 items-end bg-white text-white p-2 md:h-22 gap-1 md:gap-3">
       
       
@@ -118,6 +118,6 @@ export default function Page() {
         </div>
 
     </main>
-
+    </main>
   );
 }
